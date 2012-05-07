@@ -30,7 +30,6 @@ public class GameManager implements MoveFinishListener {
 	private static GameManager instance;
 
 	private GameManager() {
-
 	}
 
 	//public void Init(ForvardStack w, BackwardStack b) {

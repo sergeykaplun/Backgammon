@@ -275,7 +275,9 @@ public class GameBoard extends SurfaceView implements SurfaceHolder.Callback {
 
 		if(GameMode.mode == GameMode.MODE_NEW_GAME){
 			whites = new ForvardStack(CHIPS_COUNT, chipSize, GREY_CHIPS);
-		//	whites = new FBot(CHIPS_COUNT,chipSize,GREY_CHIPS);
+//			new Bot(CHIPS_COUNT, chipSize, GREY_CHIPS);
+//			((Bot)whites).setListener(GameManager.getInstance());
+			//	whites = new FBot(CHIPS_COUNT,chipSize,GREY_CHIPS);
 		//	((Bot)whites).setListener(GameManager.getInstance());
 			blacks = new Bot(CHIPS_COUNT,chipSize,RED_CHIPS);((Bot)blacks).setListener(GameManager.getInstance());//new BackwardStack(CHIPS_COUNT, chipSize, RED_CHIPS);
 		}else{
@@ -283,7 +285,6 @@ public class GameBoard extends SurfaceView implements SurfaceHolder.Callback {
 			blacks = new Bot(CHIPS_COUNT,chipSize,RED_CHIPS, GameMode.state.bPositions, GameMode.state.bPoints, GameMode.state.bIsTop);((Bot)blacks).setListener(GameManager.getInstance());
 		}
 		
-		GameManager.getInstance().Init(whites, blacks);
 		Move wMove = new ForvardMove(whites, blacks, chipSize,
 				GameManager.getInstance(), Journal.getInstance());
 		Move bMove = new BackwardMove(blacks, whites, chipSize,
@@ -291,7 +292,8 @@ public class GameBoard extends SurfaceView implements SurfaceHolder.Callback {
 
 		whites.setMove(wMove);
 		blacks.setMove(bMove);
-
+		
+		GameManager.getInstance().Init(whites, blacks);
 		GameManager.getInstance().rollDice();
 		//GameManager.getInstance().makeMove();
 		

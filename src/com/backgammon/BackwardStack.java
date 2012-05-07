@@ -55,7 +55,7 @@ public class BackwardStack extends Stack{
 	@Override
 	public void setMove(Move m) {
 		if(!(m instanceof BackwardMove))
-			return;
+			return; 
 		this.move = m;
 	}
 
